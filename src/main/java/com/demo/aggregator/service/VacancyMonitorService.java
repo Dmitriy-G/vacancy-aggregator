@@ -1,29 +1,30 @@
 package com.demo.aggregator.service;
 
-import com.demo.aggregator.model.core.Source;
+import com.demo.aggregator.config.sources.Source;
 
 /**
  * Service for continuous vacancies monitoring.
  *
  * @author Dmitriy G
  */
-public interface VacancyMonitorService extends MonitorService<Source> {
+public interface VacancyMonitorService extends MonitorService {
     /**
      * Method for monitoring vacancies from some vendor by default interval
      *
-     * @param source
-     * The source of vacancies
      */
-    void monitoring(Source source);
+    void monitoring();
 
     /**
      * Method for monitoring vacancies from some vendor by specified interval
      *
-     * @param source
-     *        The source of vacancies
-     *
      * @param intervalSeconds
      *        Interval in seconds
      */
-    void monitoring(Source source, Long intervalSeconds);
+    void monitoring(Long intervalSeconds);
+
+    /**
+     * Method for stop monitoring vacancies
+     *
+     */
+    void stopMonitoring();
 }

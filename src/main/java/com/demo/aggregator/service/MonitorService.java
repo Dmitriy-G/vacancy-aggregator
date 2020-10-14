@@ -1,15 +1,13 @@
 package com.demo.aggregator.service;
 
 
-import com.demo.aggregator.model.core.Source;
-
 /**
  * Base monitor interface
- * @param <T> the type of entity for monitoring
  *
  * @author Dmitriy G
  */
-public interface MonitorService<T extends Source> {
-    void monitoring(T t);
-    void monitoring(T t, Long intervalSeconds);
+public interface MonitorService {
+    void monitoring();
+    void monitoring(Long intervalSeconds);
+    void stopMonitoring();
 }

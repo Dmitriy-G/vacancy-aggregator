@@ -1,6 +1,4 @@
-package com.demo.aggregator.model.core;
-
-import java.net.URL;
+package com.demo.aggregator.config.sources;
 
 /**
  * Main data source interface.
@@ -12,5 +10,5 @@ public interface Source {
     /**
      * @return url of data source
      */
-    URL getUrl();
+    String getUrl();
 }
