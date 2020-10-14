@@ -1,4 +1,4 @@
-package com.demo.aggregator.model;
+package com.demo.aggregator.model.data;
 
 import com.demo.aggregator.model.core.Vacancy;
 import lombok.AllArgsConstructor;

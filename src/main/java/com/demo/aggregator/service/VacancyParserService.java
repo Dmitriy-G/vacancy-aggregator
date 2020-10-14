@@ -8,7 +8,7 @@ import org.json.JSONObject;
  *
  * @author Dmitriy G
  */
-public interface VacanciesParserService {
+public interface VacancyParserService {
     /**
      * Parse from JSON to model
      *
