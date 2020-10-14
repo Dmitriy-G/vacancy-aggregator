@@ -18,9 +18,7 @@ public interface MonitorManagerService {
      * Method for start monitor
      *
      * @param monitorService
-     *        Type of monitor
-     * @param source
-     *        Source of monitor
+     *        Type of monitor service
      */
     void startMonitor(MonitorService monitorService);
 
@@ -28,9 +26,7 @@ public interface MonitorManagerService {
      * Method for stop monitor
      *
      * @param monitorService
-     *        Type of monitor
-     * @param source
-     *        Source of monitor
+     *        Type of monitor service
      */
     void stopMonitor(MonitorService monitorService);
 }
