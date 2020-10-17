@@ -1,21 +1,21 @@
 package com.demo.aggregator.model.data;
 
 import com.demo.aggregator.model.core.Vacancy;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
+import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
+@EqualsAndHashCode
+@ToString
 public class RabotaUAVacancy implements Vacancy {
     private String id;
     private String name;
-    private Date date;
+    @EqualsAndHashCode.Exclude private Date date;
     private String cityName;
     private String companyName;
     private String shortDescription;

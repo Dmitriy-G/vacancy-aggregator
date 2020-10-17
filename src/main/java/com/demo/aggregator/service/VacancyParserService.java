@@ -1,7 +1,8 @@
 package com.demo.aggregator.service;
 
 import com.demo.aggregator.model.core.Vacancy;
-import org.json.JSONObject;
+
+import java.util.List;
 
 /**
  * Service for parsing data from vendors to model
@@ -12,8 +13,8 @@ public interface VacancyParserService {
     /**
      * Parse from JSON to model
      *
-     * @param jsonObject
+     * @param json
      *        Data in JSON format
      */
-    Vacancy parse(JSONObject jsonObject);
+    List<Vacancy> parse(String json);
 }
