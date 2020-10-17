@@ -1,7 +1,6 @@
 package com.demo.aggregator.service;
 
 import com.demo.aggregator.model.core.Vacancy;
-
 import java.util.List;
 
 /**
@@ -13,8 +12,7 @@ public interface VacancyParserService {
     /**
      * Parse from JSON to model
      *
-     * @param json
-     *        Data in JSON format
+     * @param json Data in JSON format
      */
     List<Vacancy> parse(String json);
 }

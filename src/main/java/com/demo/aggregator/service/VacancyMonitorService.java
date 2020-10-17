@@ -1,6 +1,5 @@
 package com.demo.aggregator.service;
 
-import com.demo.aggregator.config.sources.Source;
 
 /**
  * Service for continuous vacancies monitoring.
@@ -17,14 +16,12 @@ public interface VacancyMonitorService extends MonitorService {
     /**
      * Method for monitoring vacancies from some vendor by specified interval
      *
-     * @param intervalSeconds
-     *        Interval in seconds
+     * @param intervalSeconds Interval in seconds
      */
     void monitoring(Long intervalSeconds);
 
     /**
      * Method for stop monitoring vacancies
-     *
      */
     void stopMonitoring();
 }
