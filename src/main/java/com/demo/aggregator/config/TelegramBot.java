@@ -1,6 +1,8 @@
 package com.demo.aggregator.config;
 
+import com.demo.aggregator.service.storage.NotificationStorageService;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -21,7 +23,12 @@ public class TelegramBot extends TelegramLongPollingBot {
     //TODO: move to properties
     private final String TELEGRAM_BOT_NAME = "";
     private final String TELEGRAM_BOT_TOKEN = "";
+    private NotificationStorageService notificationStorageService;
 
+    @Autowired
+    public TelegramBot(NotificationStorageService notificationStorageService) {
+        this.notificationStorageService = notificationStorageService;
+    }
 
     @PostConstruct
     private void postConstruct() {
@@ -40,9 +47,26 @@ public class TelegramBot extends TelegramLongPollingBot {
      */
     @Override
     public void onUpdateReceived(Update update) {
-        // still like a mirror
-        String message = "Still like a mirror, so: " + update.getMessage().getText();
-        sendMsg(update.getMessage().getChatId().toString(), message);
+        String chatId = update.getMessage().getChatId().toString();
+        String messageText = update.getMessage().getText();
+        switch (messageText) {
+            case "subscribe": {
+                notificationStorageService.addIdToSubscribersList(chatId);
+                String message = "You was added to subscribers";
+                sendMsg(chatId, message);
+                break;
+            }
+            case "stop": {
+                notificationStorageService.removeFromSubscribersList(chatId);
+                String message = "You was removed from subscribers";
+                sendMsg(chatId, message);
+                break;
+            }
+            default: {
+                String message = "Unknown command: " + update.getMessage().getText();
+                sendMsg(chatId, message);
+            }
+        }
     }
 
     /**

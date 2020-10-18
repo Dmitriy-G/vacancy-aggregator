@@ -19,4 +19,5 @@ public class RabotaUAVacancy implements Vacancy {
     private String cityName;
     private String companyName;
     private String shortDescription;
+    @EqualsAndHashCode.Exclude private String designBannerUrl;
 }

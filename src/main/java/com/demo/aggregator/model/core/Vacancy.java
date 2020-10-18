@@ -13,54 +13,54 @@ public interface Vacancy {
     /**
      * Set id for vacancy
      *
-     * @param id
-     *        The id of the vacancy
+     * @param id The id of the vacancy
      */
     void setId(String id);
 
     /**
      * Set name for vacancy
      *
-     * @param name
-     *        The name of the vacancy
+     * @param name The name of the vacancy
      */
     void setName(String name);
 
     /**
      * Set date for vacancy
      *
-     * @param date
-     *        The date of the vacancy
+     * @param date The date of the vacancy
      */
     void setDate(Date date);
 
     /**
      * Set city name for vacancy
      *
-     * @param cityName
-     *        The city name of the vacancy
+     * @param cityName The city name of the vacancy
      */
     void setCityName(String cityName);
 
     /**
      * Set company name for vacancy
      *
-     * @param companyName
-     *        The company name of the vacancy
+     * @param companyName The company name of the vacancy
      */
     void setCompanyName(String companyName);
 
     /**
      * Set short description for vacancy
      *
-     * @param shortDescription
-     *        The short description of the vacancy
+     * @param shortDescription The short description of the vacancy
      */
     void setShortDescription(String shortDescription);
 
     /**
-     * Get id for vacancy
+     * Set company logo for vacancy
      *
+     * @param designBannerUrl The company logo of the vacancy
+     */
+    void setDesignBannerUrl(String designBannerUrl);
+
+    /**
+     * Get id for vacancy
      */
     String getId();
 
@@ -88,5 +88,10 @@ public interface Vacancy {
      * Get short description for vacancy
      */
     String getShortDescription();
+
+    /**
+     * Get company logo url for vacancy
+     */
+    String getDesignBannerUrl();
 
 }

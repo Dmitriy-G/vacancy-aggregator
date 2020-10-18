@@ -25,7 +25,7 @@ public class VacancyMonitorFromRabotaUAService implements VacancyMonitorService 
 
     @Override
     public void monitoring() {
-        final Long defaultInterval  = 30L;
+        final Long defaultInterval  = 120L;
         monitoring(defaultInterval);
     }
 

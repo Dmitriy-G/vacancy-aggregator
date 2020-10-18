@@ -7,7 +7,7 @@ import com.demo.aggregator.model.core.Notification;
  *
  * @author Dmitriy G
  */
-public interface NotificationSender {
+public interface NotificationSenderService {
 
     /**
      * Method for send notification
