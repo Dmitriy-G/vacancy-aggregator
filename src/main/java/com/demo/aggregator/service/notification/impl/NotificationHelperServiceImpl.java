@@ -22,6 +22,8 @@ public class NotificationHelperServiceImpl implements NotificationHelperService 
     //TODO: it's must be list of notification services (telegram, viber etc)
     private NotificationSenderService senderService;
 
+    private final String RABOTA_UA_URL = "https://rabota.ua/company1/vacancy";
+
     @Autowired
     public NotificationHelperServiceImpl(NotificationStorageService storageService, NotificationSenderService senderService) {
         this.storageService = storageService;
@@ -74,7 +76,8 @@ public class NotificationHelperServiceImpl implements NotificationHelperService 
                 .append(vacancy.getCityName()).append("\n")
                 .append("*Краткое описание:* ")
                 .append(vacancy.getShortDescription()).append("\n")
-                .append("*Дата размещения:* ").append(vacancy.getDate()).append("\n\n");
+                .append("*Дата размещения:* ").append(vacancy.getDate()).append("\n\n")
+                .append("*Ссылка на вакансию:* ").append(RABOTA_UA_URL).append(vacancy.getId()).append("\n\n");
         return builder.toString();
     }
 }
