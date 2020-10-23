@@ -1,6 +1,6 @@
-package com.demo.aggregator.config;
+package com.demo.aggregator.sender;
 
-import com.demo.aggregator.service.storage.NotificationStorageService;
+import com.demo.aggregator.service.NotificationStorageService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,8 +21,9 @@ import javax.annotation.PostConstruct;
 public class TelegramBot extends TelegramLongPollingBot {
 
     //TODO: move to properties
-    private final String TELEGRAM_BOT_NAME = "";
-    private final String TELEGRAM_BOT_TOKEN = "";
+    private String TELEGRAM_BOT_NAME = "";
+    private String TELEGRAM_BOT_TOKEN = "";
+
     private NotificationStorageService notificationStorageService;
 
     @Autowired

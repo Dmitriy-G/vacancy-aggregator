@@ -1,6 +1,6 @@
-package com.demo.aggregator.service.notification;
+package com.demo.aggregator.service;
 
-import com.demo.aggregator.model.core.Notification;
+import com.demo.aggregator.model.Notification;
 
 /**
  * Interface for sand notifications

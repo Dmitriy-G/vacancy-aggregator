@@ -1,4 +1,4 @@
-package com.demo.aggregator.config.sources;
+package com.demo.aggregator.config;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -1,6 +1,7 @@
 package com.demo.aggregator.service;
 
-import com.demo.aggregator.model.core.Vacancy;
+import com.demo.aggregator.model.Vacancy;
+
 import java.util.List;
 
 /**

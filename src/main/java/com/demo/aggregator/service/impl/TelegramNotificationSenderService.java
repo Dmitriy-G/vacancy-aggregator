@@ -1,8 +1,8 @@
-package com.demo.aggregator.service.notification.impl;
+package com.demo.aggregator.service.impl;
 
-import com.demo.aggregator.config.TelegramBot;
-import com.demo.aggregator.model.core.Notification;
-import com.demo.aggregator.service.notification.NotificationSenderService;
+import com.demo.aggregator.model.Notification;
+import com.demo.aggregator.sender.TelegramBot;
+import com.demo.aggregator.service.NotificationSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

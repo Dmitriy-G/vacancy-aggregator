@@ -1,9 +1,9 @@
-package com.demo.aggregator.service.storage.impl;
+package com.demo.aggregator.service.impl;
 
-import com.demo.aggregator.model.core.Vacancy;
-import com.demo.aggregator.model.data.TelegramSubscriber;
+import com.demo.aggregator.model.Subscriber;
+import com.demo.aggregator.model.Vacancy;
 import com.demo.aggregator.repository.TelegramSubscriberRepository;
-import com.demo.aggregator.service.storage.NotificationStorageService;
+import com.demo.aggregator.service.NotificationStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,13 +25,13 @@ public class TelegramNotificationStorageServiceImpl implements NotificationStora
 
     @Override
     public List<String> getSubscribersIdList() {
-        List<TelegramSubscriber> subscribers = telegramSubscriberRepository.findAll();
-        return subscribers.stream().map(TelegramSubscriber::getChatId).collect(Collectors.toList());
+        List<Subscriber> subscribers = telegramSubscriberRepository.findAll();
+        return subscribers.stream().map(Subscriber::getChatId).collect(Collectors.toList());
     }
 
     @Override
     public void addIdToSubscribersList(String subscriberId) {
-        TelegramSubscriber subscriber = new TelegramSubscriber(subscriberId, new HashMap<>());
+        Subscriber subscriber = new Subscriber(subscriberId, new HashMap<>());
         telegramSubscriberRepository.save(subscriber);
     }
 
@@ -42,7 +42,7 @@ public class TelegramNotificationStorageServiceImpl implements NotificationStora
 
     @Override
     public void addReceivedVacancyToSubscriberList(String chatId, Vacancy vacancy) {
-        TelegramSubscriber subscriber = telegramSubscriberRepository.findByChatId(chatId);
+        Subscriber subscriber = telegramSubscriberRepository.findByChatId(chatId);
         Map<String, String> sentVacancyMap = subscriber.getSentVacancy();
         sentVacancyMap.put(vacancy.getId(), "rabotaUa");
         subscriber.setSentVacancy(sentVacancyMap);
@@ -51,7 +51,7 @@ public class TelegramNotificationStorageServiceImpl implements NotificationStora
 
     @Override
     public Set<String> findVacanciesIdsBySubscriberId(String subscriberId) {
-        TelegramSubscriber subscriber = telegramSubscriberRepository.findByChatId(subscriberId);
+        Subscriber subscriber = telegramSubscriberRepository.findByChatId(subscriberId);
         return subscriber.getSentVacancy().keySet();
     }
 }

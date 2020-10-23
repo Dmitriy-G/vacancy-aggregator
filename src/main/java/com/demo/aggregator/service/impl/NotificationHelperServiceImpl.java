@@ -1,11 +1,10 @@
-package com.demo.aggregator.service.notification.impl;
+package com.demo.aggregator.service.impl;
 
-import com.demo.aggregator.model.core.Notification;
-import com.demo.aggregator.model.core.Vacancy;
-import com.demo.aggregator.model.data.TelegramNotification;
-import com.demo.aggregator.service.notification.NotificationHelperService;
-import com.demo.aggregator.service.notification.NotificationSenderService;
-import com.demo.aggregator.service.storage.NotificationStorageService;
+import com.demo.aggregator.model.Notification;
+import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.service.NotificationHelperService;
+import com.demo.aggregator.service.NotificationSenderService;
+import com.demo.aggregator.service.NotificationStorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +35,7 @@ public class NotificationHelperServiceImpl implements NotificationHelperService 
         List<Notification> notifications = new ArrayList<>();
         String notificationText = generateNotificationText(vacancy);
         for (String subscriberId: subscribersIds) {
-            Notification notification = new TelegramNotification(subscriberId, notificationText);
+            Notification notification = new Notification(subscriberId, notificationText);
             notifications.add(notification);
         }
         return notifications;

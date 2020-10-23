@@ -1,6 +1,5 @@
-package com.demo.aggregator.model.data;
+package com.demo.aggregator.model;
 
-import com.demo.aggregator.model.core.Notification;
 import lombok.*;
 
 @Getter
@@ -9,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class TelegramNotification implements Notification {
+public class Notification {
     private String chatId;
     private String messageText;
 }

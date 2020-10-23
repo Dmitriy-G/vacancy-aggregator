@@ -1,6 +1,5 @@
-package com.demo.aggregator.model.data;
+package com.demo.aggregator.model;
 
-import com.demo.aggregator.model.core.Subscriber;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,7 +17,7 @@ import java.util.Map;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class TelegramSubscriber implements Subscriber {
+public class Subscriber {
     /**
      * The telegram chat id with subscriber
      */

@@ -1,10 +1,8 @@
-package com.demo.aggregator.model.data;
+package com.demo.aggregator.model;
 
-import com.demo.aggregator.model.core.Vacancy;
 import lombok.*;
 
 import java.util.Date;
-import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,7 +10,7 @@ import java.util.Objects;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class RabotaUAVacancy implements Vacancy {
+public class Vacancy {
     private String id;
     private String name;
     @EqualsAndHashCode.Exclude private Date date;

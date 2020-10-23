@@ -1,7 +1,6 @@
 package com.demo.aggregator.service.impl;
 
-import com.demo.aggregator.model.core.Vacancy;
-import com.demo.aggregator.model.data.RabotaUAVacancy;
+import com.demo.aggregator.model.Vacancy;
 import com.demo.aggregator.service.VacancyParserService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,7 +25,7 @@ public class RabotaUAVacancyParserService implements VacancyParserService {
         List<Vacancy> vacancies = new ArrayList<>();
         for (Object document: documents) {
             JSONObject obj = (JSONObject) document;
-            Vacancy vacancy = mapper.readValue(obj.toString(), RabotaUAVacancy.class);
+            Vacancy vacancy = mapper.readValue(obj.toString(), Vacancy.class);
             vacancies.add(vacancy);
         }
         return vacancies;

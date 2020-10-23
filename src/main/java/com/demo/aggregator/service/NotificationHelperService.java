@@ -1,7 +1,7 @@
-package com.demo.aggregator.service.notification;
+package com.demo.aggregator.service;
 
-import com.demo.aggregator.model.core.Notification;
-import com.demo.aggregator.model.core.Vacancy;
+import com.demo.aggregator.model.Notification;
+import com.demo.aggregator.model.Vacancy;
 
 import java.util.List;
 

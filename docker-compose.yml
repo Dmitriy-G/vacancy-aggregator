@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: customerManagerService
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    ports:
+      - "27017:27017"
+  app:
+    image: app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+       APP_DB_HOST: mongodb
+       APP_DB_NAME: testdb
+       APP_DB_USER: customerManagerService
+       APP_DB_PASS: 1234
+    volumes:
+      - /data/springboot-docker-compose-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
