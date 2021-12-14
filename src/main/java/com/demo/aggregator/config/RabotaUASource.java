@@ -18,7 +18,7 @@ public class RabotaUASource implements Source {
     private HttpHeaders headers;
 
     public RabotaUASource() {
-        this.url = "https://api.rabota.ua/vacancy/search?keyWords=java";
+        this.url = "https://api.rabota.ua/vacancy/search?keyWords=Junior Java";
         this.headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
         headers.add("Accept", "*/*");

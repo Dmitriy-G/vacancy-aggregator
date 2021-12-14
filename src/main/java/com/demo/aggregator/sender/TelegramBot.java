@@ -8,7 +8,8 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import javax.annotation.PostConstruct;
 
@@ -20,7 +21,7 @@ import javax.annotation.PostConstruct;
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
 
-    //TODO: move to properties
+//    TODO: move to properties
     private String TELEGRAM_BOT_NAME = "";
     private String TELEGRAM_BOT_TOKEN = "";
 
@@ -33,10 +34,10 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @PostConstruct
     private void postConstruct() {
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(this);
-        } catch (TelegramApiRequestException e) {
+        } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
