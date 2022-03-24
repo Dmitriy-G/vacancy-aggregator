@@ -1,6 +1,6 @@
 package com.demo.aggregator.service;
 
-import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.dto.Vacancy;
 
 import java.util.List;
 import java.util.Set;
@@ -19,7 +19,7 @@ public interface NotificationStorageService {
      * The method add user to subscribers
      * @param subscriberId the id of new subscriber (like chatId or channelId)
      */
-    void addIdToSubscribersList(String subscriberId);
+    void addIdToSubscribersList(String subscriberId, String keyWord);
 
     /**
      * The method remove user from subscribers

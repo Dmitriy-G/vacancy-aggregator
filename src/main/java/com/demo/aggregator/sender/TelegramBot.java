@@ -50,10 +50,12 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         String chatId = update.getMessage().getChatId().toString();
-        String messageText = update.getMessage().getText();
-        switch (messageText) {
+        String[] messageText = update.getMessage().getText().split(" ");
+        String command = messageText[0];
+        String param = messageText[1];
+        switch (command) {
             case "subscribe": {
-                notificationStorageService.addIdToSubscribersList(chatId);
+                notificationStorageService.addIdToSubscribersList(chatId, param);
                 String message = "You was added to subscribers";
                 sendMsg(chatId, message);
                 break;

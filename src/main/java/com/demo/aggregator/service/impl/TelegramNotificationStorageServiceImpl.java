@@ -1,7 +1,7 @@
 package com.demo.aggregator.service.impl;
 
-import com.demo.aggregator.model.Subscriber;
-import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.entity.Subscriber;
+import com.demo.aggregator.dto.Vacancy;
 import com.demo.aggregator.repository.TelegramSubscriberRepository;
 import com.demo.aggregator.service.NotificationStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +30,8 @@ public class TelegramNotificationStorageServiceImpl implements NotificationStora
     }
 
     @Override
-    public void addIdToSubscribersList(String subscriberId) {
-        Subscriber subscriber = new Subscriber(subscriberId, new HashMap<>());
+    public void addIdToSubscribersList(String subscriberId, String keyWord ) {
+        Subscriber subscriber = new Subscriber(subscriberId, keyWord, new HashMap<>());
         telegramSubscriberRepository.save(subscriber);
     }
 

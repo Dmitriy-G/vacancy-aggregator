@@ -1,7 +1,7 @@
 package com.demo.aggregator.services;
 
 
-import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.dto.Vacancy;
 import com.demo.aggregator.service.impl.RabotaUAVacancyParserService;
 import org.junit.jupiter.api.Test;
 

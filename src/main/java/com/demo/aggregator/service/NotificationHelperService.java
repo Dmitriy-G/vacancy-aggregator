@@ -1,7 +1,7 @@
 package com.demo.aggregator.service;
 
-import com.demo.aggregator.model.Notification;
-import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.dto.Notification;
+import com.demo.aggregator.dto.Vacancy;
 
 import java.util.List;
 

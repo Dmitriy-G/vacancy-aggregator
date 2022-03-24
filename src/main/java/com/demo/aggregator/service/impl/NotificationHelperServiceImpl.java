@@ -1,7 +1,7 @@
 package com.demo.aggregator.service.impl;
 
-import com.demo.aggregator.model.Notification;
-import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.dto.Notification;
+import com.demo.aggregator.dto.Vacancy;
 import com.demo.aggregator.service.NotificationHelperService;
 import com.demo.aggregator.service.NotificationSenderService;
 import com.demo.aggregator.service.NotificationStorageService;
@@ -48,6 +48,8 @@ public class NotificationHelperServiceImpl implements NotificationHelperService 
             String subscriberId = notification.getChatId();
             Set<String> sentVacanciesId = storageService.findVacanciesIdsBySubscriberId(subscriberId);
             if (!sentVacanciesId.contains(vacancy.getId())) {
+                //TODO: if keyword there was a selection, then return the data from DB
+                //TODO: if there was no collection for the keyword, then create a new record of KeyWordReceivedVacancies
                 Boolean result = senderService.send(notification);
                 if (result) {
                     addReceivedVacancyToSubscriberList(subscriberId, vacancy);

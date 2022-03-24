@@ -1,6 +1,6 @@
 package com.demo.aggregator.repository;
 
-import com.demo.aggregator.model.Subscriber;
+import com.demo.aggregator.entity.Subscriber;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

@@ -2,7 +2,7 @@ package com.demo.aggregator.tasks.impl;
 
 import com.demo.aggregator.config.RabotaUASource;
 import com.demo.aggregator.config.Source;
-import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.dto.Vacancy;
 import com.demo.aggregator.service.impl.RabotaUAVacancyParserService;
 import com.demo.aggregator.service.NotificationHelperService;
 import com.demo.aggregator.tasks.Monitor;
@@ -35,11 +35,12 @@ public class RabotaUAVacancyMonitor implements Monitor {
     //TODO: set delay via config
     @Scheduled(fixedDelay = 10000)
     @Override
-    public void monitoring() {
-        log.info("Start vacancy monitor for " + source.getUrl());
+    public void monitoring(String keyWord) {
+        String actualUrl = source.getUrl() + keyWord;
+        log.info("Start vacancy monitor for " + actualUrl;
         RestTemplate rest = new RestTemplate();
         HttpEntity<String> requestEntity = new HttpEntity<>("", source.getHeaders());
-        ResponseEntity<String> responseEntity = rest.exchange(source.getUrl(), HttpMethod.GET, requestEntity, String.class);
+        ResponseEntity<String> responseEntity = rest.exchange(actualUrl, HttpMethod.GET, requestEntity, String.class);
         String response = responseEntity.getBody();
         log.info(response);
         List<Vacancy> vacancyList = parserService.parse(response);

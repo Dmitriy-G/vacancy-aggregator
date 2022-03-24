@@ -1,6 +1,6 @@
 package com.demo.aggregator.service.impl;
 
-import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.dto.Vacancy;
 import com.demo.aggregator.service.VacancyParserService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
