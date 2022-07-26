@@ -8,7 +8,10 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
+import org.telegram.telegrambots.meta.generics.BotSession;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import javax.annotation.PostConstruct;
 
@@ -21,8 +24,8 @@ import javax.annotation.PostConstruct;
 public class TelegramBot extends TelegramLongPollingBot {
 
     //TODO: move to properties
-    private String TELEGRAM_BOT_NAME = "";
-    private String TELEGRAM_BOT_TOKEN = "";
+    private String TELEGRAM_BOT_NAME = "java_position_sender_test_bot";
+    private String TELEGRAM_BOT_TOKEN = "1178890242:AAEqVpKs_fx8miC_QERngbhVM76wvApjwfg";
 
     private NotificationStorageService notificationStorageService;
 
@@ -33,12 +36,13 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @PostConstruct
     private void postConstruct() {
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-        try {
-            telegramBotsApi.registerBot(this);
-        } catch (TelegramApiRequestException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            BotSession session = new DefaultBotSession();
+//            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(session.getClass());
+//            telegramBotsApi.registerBot(this);
+//        } catch (TelegramApiException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**

@@ -2,6 +2,7 @@ package com.demo.aggregator.service.impl;
 
 import com.demo.aggregator.model.Subscriber;
 import com.demo.aggregator.model.Vacancy;
+import com.demo.aggregator.repository.SpikeSubscriberRepository;
 import com.demo.aggregator.repository.TelegramSubscriberRepository;
 import com.demo.aggregator.service.NotificationStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,11 @@ import java.util.stream.Collectors;
 @Service
 public class TelegramNotificationStorageServiceImpl implements NotificationStorageService {
 
-    private TelegramSubscriberRepository telegramSubscriberRepository;
+    //private TelegramSubscriberRepository telegramSubscriberRepository;
+    private SpikeSubscriberRepository telegramSubscriberRepository;
 
     @Autowired
-    public TelegramNotificationStorageServiceImpl(TelegramSubscriberRepository telegramSubscriberRepository) {
+    public TelegramNotificationStorageServiceImpl(SpikeSubscriberRepository telegramSubscriberRepository) {
         this.telegramSubscriberRepository = telegramSubscriberRepository;
     }
 
